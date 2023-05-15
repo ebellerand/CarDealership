@@ -53,34 +53,48 @@ public class Dealership {
         return null;
     }
 
-    private List<Vehicle> getVehicleByMakeModel(String make, String model) {
+    public List<Vehicle> getVehicleByMakeModel(String make, String model) {
         return null;
     }
 
-    private List<Vehicle> getVehicleByYear(int min, int max) {
+    public List<Vehicle> getVehicleByYear(int min, int max) {
         return null;
     }
 
-    private List<Vehicle> getVehicleByColor(String color) {
+    public List<Vehicle> getVehicleByColor(String color) {
         return null;
     }
 
-    private List<Vehicle> getVehicleByMileage(int min, int max) {
+    public List<Vehicle> getVehicleByMileage(int min, int max) {
         return null;
     }
 
-    private List<Vehicle> getVehicleByType(String vehicleType) {
+    public List<Vehicle> getVehicleByType(String vehicleType) {
         return null;
     }
-    private List<Vehicle> getAllVehicles() {
+
+    public List<Vehicle> getAllVehicles() {
         List<Vehicle> allVehicles = new ArrayList<>();
         for (int i = 0; i < inventory.size(); i++) {
             allVehicles.add(inventory.get(i));
-        } return allVehicles;
+        }
+        return allVehicles;
     }
+
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
-        fileManager.writeCsvFile(inventory );
+        fileManager.writeCsvFile(inventory);
 
+    }
+
+    public boolean removeVehicleByVin(int vin) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin() == vin) {
+                inventory.remove(vehicle);
+                fileManager.writeCsvFile(inventory);
+                return true;
+            }
+        }
+        return false;
     }
 }

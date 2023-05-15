@@ -35,6 +35,7 @@ public class UserInterface {
         System.out.println("---------------------------------------------------------------");
         System.out.println("Please enter your selection: ");
         int command = scanner.nextInt();
+        String password = "password";
 
 
         switch (command) {
@@ -46,35 +47,106 @@ public class UserInterface {
                 List<Vehicle> vehiclesByPrice = dealership.getVehicleByPrice(minPrice, maxPrice);
 
         break;
+
         case 2:
-            
-
+            System.out.println("Enter make: ");
+            String searchMake = scanner.nextLine();
+            System.out.println("Enter model: ");
+            String searchModel = scanner.nextLine();
+            scanner.nextLine();
+            List<Vehicle> vehiclesByMakeModel = dealership.getVehicleByMakeModel(searchMake, searchModel);
         break;
+
         case 3:
-
+            System.out.println("Enter the year that starts the range: ");
+            int searchStartYear = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Enter the year that ends the range: ");
+            int searchEndYear = scanner.nextInt();
+            List<Vehicle> vehiclesByYear = dealership.getVehicleByYear(searchStartYear, searchEndYear);
         break;
+
         case 4:
-
+            System.out.println("Enter the color: ");
+            String searchColor = scanner.nextLine();
+            List<Vehicle> vehiclesByColor = dealership.getVehicleByColor(searchColor);
         break;
+
         case 5:
-
+            System.out.println("Enter the mileage minimum: ");
+            int searchMileageMin = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Enter the mileage maximum: ");
+            int searchMileageMax = scanner.nextInt();
+            List<Vehicle> vehiclesByMileage = dealership.getVehicleByMileage(searchMileageMin, searchMileageMax);
         break;
+
         case 6:
-
+            System.out.println("Enter the vehicle type: ");
+            String searchVehicleType = scanner.nextLine();
+            List<Vehicle> vehiclesByVehicleType = dealership.getVehicleByType(searchVehicleType);
         break;
-        case 7:
 
+        case 7:
+            System.out.println("All vehicles: ");
+            System.out.println("-----------------------------------------------------");
+            List<Vehicle> allVehicles = dealership.getAllVehicles();
         break;
 
         case 8:
+            System.out.println("Internal selection: Add a Vehicle");
+            System.out.println("--------------------------------------------------------");
+            System.out.println("Please enter the password: ");
+            String enteredPassword = scanner.next();
+            if (enteredPassword.equals("password")) {
+                System.out.println("Enter VIN: ");
+                int vin = scanner.nextInt();
+                System.out.println("Enter Year: ");
+                int year = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println("Enter Make: ");
+                String make = scanner.nextLine();
+                System.out.println("Enter Model: ");
+                String model = scanner.nextLine();
+                System.out.println("Enter Vehicle Type: ");
+                String vehicleType = scanner.nextLine();
+                System.out.println("Enter Color: ");
+                String color = scanner.nextLine();
+                System.out.println("Enter Odometer: ");
+                int odometer = scanner.nextInt();
+                System.out.println("Enter Price: ");
+                double price = scanner.nextDouble();
+                scanner.nextLine();
 
+                Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+                dealership.addVehicle(vehicle);
+
+                System.out.println("Vehicle added successfully. ");
+
+            } else {
+                System.out.println("Incorrect password. Access denied.");
+            }
         break;
 
         case 9:
-
+            System.out.println("Internal Selection: Remove a Vehicle");
+            System.out.println("--------------------------------------------");
+            System.out.println("Please enter the password: ");
+            enteredPassword = scanner.next();
+            if (enteredPassword.equals("password")) {
+                System.out.println("Enter the VIN of the vehicle to remove: ");
+                int vinToRemove = scanner.nextInt();
+                scanner.nextLine();
+                boolean isVehicleRemoved = dealership.removeVehicleByVin(vinToRemove);
+                if (isVehicleRemoved) {
+                    System.out.println("Vehicle removed successfully. ");
+                } else {
+                    System.out.println("Vehicle not found or removal failed. ");
+                }
+            }  else {
+                System.out.println("Incorrect password. Access denied.");
+            }
         break;
-
-
         default:
 
                 System.out.println("Invalid selection. Please try again. ");
