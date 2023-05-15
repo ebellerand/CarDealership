@@ -7,7 +7,7 @@ import java.util.List;
 public class DealershipFileManager {
     String filename = "dealership.csv";
     Dealership dealership = null;
-    public void readCsvFile(String filename) throws IOException {
+    public void getDealershipFromCsv(String filename) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             if ((line = reader.readLine()) != null) {
@@ -24,7 +24,14 @@ public class DealershipFileManager {
         }
     private void processVehicleData(BufferedReader reader, Dealership dealership) throws IOException {
         String line;
+        boolean isFirstLine = true;
+
         while ((line = reader.readLine()) != null) {
+            if (isFirstLine) {
+                isFirstLine = false;
+                continue;
+            }
+
             String[] data = line.split("\\|");
             int vin = Integer.parseInt(data[0].trim());
             int year = Integer.parseInt(data[1].trim());
@@ -50,5 +57,7 @@ public class DealershipFileManager {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        } public void saveDealership() {
+
+    }
     }

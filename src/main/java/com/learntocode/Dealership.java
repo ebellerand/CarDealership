@@ -49,7 +49,7 @@ public class Dealership {
         this.inventory = inventory;
     }
 
-    private List<Vehicle> getVehicleByPrice(double min, double max) {
+    public List<Vehicle> getVehicleByPrice(double min, double max) {
         return null;
     }
 
