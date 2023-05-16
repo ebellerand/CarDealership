@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DealershipFileManager {
-    String filename = "dealership.csv";
+    private static final String filename = "dealership.csv";
     Dealership dealership = null;
 
     public Dealership getDealershipFromCsv(String filename) throws IOException {

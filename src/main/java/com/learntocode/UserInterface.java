@@ -145,7 +145,7 @@ public class UserInterface {
                     Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
                     dealership.addVehicle(vehicle);
                     DealershipFileManager fileManager = new DealershipFileManager();
-                   // fileManager.writeCsvFile(dealership.getInventory());
+                    fileManager.writeCsvFile(dealership.getInventory());
 
 
 
