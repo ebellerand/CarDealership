@@ -7,7 +7,8 @@ import java.util.List;
 public class DealershipFileManager {
     String filename = "dealership.csv";
     Dealership dealership = null;
-    public void getDealershipFromCsv(String filename) throws IOException {
+
+    public Dealership getDealershipFromCsv(String filename) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             if ((line = reader.readLine()) != null) {
@@ -20,8 +21,18 @@ public class DealershipFileManager {
                 processVehicleData(reader, dealership);
 
             }
-            }
+        } catch (IOException e) {
+            System.out.println("Error reading dealership file. ");
         }
+        if (dealership != null) {
+            System.out.println("---------------------------------------");
+        } else {
+            System.out.println("Failed to create dealership object.");
+            return null;
+        }
+        return dealership;
+    }
+
     private void processVehicleData(BufferedReader reader, Dealership dealership) throws IOException {
         String line;
         boolean isFirstLine = true;
@@ -47,17 +58,18 @@ public class DealershipFileManager {
 
         }
     }
-        public void writeCsvFile(List<Vehicle> inventory) {
+       /* public void writeCsvFile(List<Vehicle> inventory) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
                 for (Vehicle vehicle : dealership.getInventory()) {
                     String line = vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice();
                     writer.write(line);
                     writer.newLine();
-                }
+                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } public void saveDealership() {
+        */
 
     }
-    }
+

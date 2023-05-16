@@ -49,12 +49,15 @@ public class UserInterface {
         break;
 
         case 2:
+            scanner.nextLine();
             System.out.println("Enter make: ");
             String searchMake = scanner.nextLine();
             System.out.println("Enter model: ");
             String searchModel = scanner.nextLine();
-            scanner.nextLine();
             List<Vehicle> vehiclesByMakeModel = dealership.getVehicleByMakeModel(searchMake, searchModel);
+            for (Vehicle vehicle : vehiclesByMakeModel) {
+                System.out.println(vehiclesByMakeModel);
+            }
         break;
 
         case 3:
@@ -91,6 +94,9 @@ public class UserInterface {
             System.out.println("All vehicles: ");
             System.out.println("-----------------------------------------------------");
             List<Vehicle> allVehicles = dealership.getAllVehicles();
+            for (Vehicle vehicle : allVehicles) {
+                System.out.println(vehicle);
+            }
         break;
 
         case 8:

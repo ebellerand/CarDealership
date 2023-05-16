@@ -8,7 +8,7 @@ public class Dealership {
     private String address;
     private String phone;
     private ArrayList<Vehicle> inventory;
-    private DealershipFileManager fileManager = new DealershipFileManager();
+    private static DealershipFileManager fileManager = new DealershipFileManager();
 
     public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory) {
         this.name = name;
@@ -54,7 +54,13 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehicleByMakeModel(String make, String model) {
-        return null;
+        List<Vehicle> matchingVehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
+                matchingVehicles.add(vehicle);
+            }
+        }
+        return matchingVehicles;
     }
 
     public List<Vehicle> getVehicleByYear(int min, int max) {
@@ -83,7 +89,7 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
-        fileManager.writeCsvFile(inventory);
+       // fileManager.writeCsvFile(inventory);
 
     }
 
@@ -91,7 +97,7 @@ public class Dealership {
         for (Vehicle vehicle : inventory) {
             if (vehicle.getVin() == vin) {
                 inventory.remove(vehicle);
-                fileManager.writeCsvFile(inventory);
+              //  fileManager.writeCsvFile(inventory);
                 return true;
             }
         }
