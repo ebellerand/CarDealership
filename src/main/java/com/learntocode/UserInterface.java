@@ -85,7 +85,7 @@ public class UserInterface {
                 for (Vehicle vehicle : vehiclesByColor) {
                     System.out.println(vehiclesByColor);
                 }
-                System.out.println(vehiclesByColor);
+               // System.out.println(vehiclesByColor);
                 break;
 
             case 5:
