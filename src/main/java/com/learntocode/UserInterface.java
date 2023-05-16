@@ -35,6 +35,7 @@ public class UserInterface {
         System.out.println("---------------------------------------------------------------");
         System.out.println("Please enter your selection: ");
         int command = scanner.nextInt();
+        scanner.nextLine();
         String password = "password";
 
 
@@ -81,6 +82,10 @@ public class UserInterface {
                 System.out.println("Enter the color: ");
                 String searchColor = scanner.nextLine();
                 List<Vehicle> vehiclesByColor = dealership.getVehicleByColor(searchColor);
+                for (Vehicle vehicle : vehiclesByColor) {
+                    System.out.println(vehiclesByColor);
+                }
+                System.out.println(vehiclesByColor);
                 break;
 
             case 5:
