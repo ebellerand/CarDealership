@@ -50,7 +50,15 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehicleByPrice(double min, double max) {
-        return null;
+        List<Vehicle> vehiclesInPriceRange = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            double price = vehicle.getPrice();
+            if (price >= min && price <= max) {
+                vehiclesInPriceRange.add(vehicle);
+            }
+        }
+        return vehiclesInPriceRange;
     }
 
     public List<Vehicle> getVehicleByMakeModel(String make, String model) {
@@ -89,7 +97,7 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
-       // fileManager.writeCsvFile(inventory);
+       //fileManager.writeCsvFile(inventory);
 
     }
 

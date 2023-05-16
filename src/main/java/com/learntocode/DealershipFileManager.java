@@ -58,18 +58,24 @@ public class DealershipFileManager {
 
         }
     }
-       /* public void writeCsvFile(List<Vehicle> inventory) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-                for (Vehicle vehicle : dealership.getInventory()) {
-                    String line = vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice();
-                    writer.write(line);
-                    writer.newLine();
-                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+
+    public void writeCsvFile(List<Vehicle> inventory) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+            for (Vehicle vehicle : inventory) {
+                String line = vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice();
+                writer.write(line);
+                writer.newLine();
             }
-        } public void saveDealership() {
-        */
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveDealership() {
+
 
     }
+}
+
 
