@@ -72,7 +72,14 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehicleByYear(int min, int max) {
-        return null;
+        List<Vehicle> vehiclesInYearRange = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            int year = vehicle.getYear();
+            if (year >= min && year <= max) {
+                vehiclesInYearRange.add(vehicle);
+            }
+        }
+        return vehiclesInYearRange;
     }
 
     public List<Vehicle> getVehicleByColor(String color) {

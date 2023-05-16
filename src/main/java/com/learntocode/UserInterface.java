@@ -48,6 +48,7 @@ public class UserInterface {
                 System.out.println("Vehicles within the price range: ");
                 for (Vehicle vehicle : vehiclesByPrice) {
                     System.out.println(vehicle);
+                    System.out.println("-------------------------------------");
                 }
                 break;
 
@@ -70,6 +71,10 @@ public class UserInterface {
                 System.out.println("Enter the year that ends the range: ");
                 int searchEndYear = scanner.nextInt();
                 List<Vehicle> vehiclesByYear = dealership.getVehicleByYear(searchStartYear, searchEndYear);
+                System.out.println("Vehicles within the year range: ");
+                for (Vehicle vehicle : vehiclesByYear) {
+                    System.out.println(vehicle);
+                }
                 break;
 
             case 4:
