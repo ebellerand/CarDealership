@@ -85,7 +85,6 @@ public class UserInterface {
                 for (Vehicle vehicle : vehiclesByColor) {
                     System.out.println(vehiclesByColor);
                 }
-               // System.out.println(vehiclesByColor);
                 break;
 
             case 5:
@@ -95,6 +94,9 @@ public class UserInterface {
                 System.out.println("Enter the mileage maximum: ");
                 int searchMileageMax = scanner.nextInt();
                 List<Vehicle> vehiclesByMileage = dealership.getVehicleByMileage(searchMileageMin, searchMileageMax);
+                for (Vehicle vehicle : vehiclesByMileage) {
+                    System.out.println(vehiclesByMileage);
+                }
                 break;
 
             case 6:
