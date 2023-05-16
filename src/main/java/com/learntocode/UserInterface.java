@@ -103,6 +103,9 @@ public class UserInterface {
                 System.out.println("Enter the vehicle type: ");
                 String searchVehicleType = scanner.nextLine();
                 List<Vehicle> vehiclesByVehicleType = dealership.getVehicleByType(searchVehicleType);
+                for (Vehicle vehicle : vehiclesByVehicleType) {
+                    System.out.println(vehiclesByVehicleType);
+                }
                 break;
 
             case 7:
