@@ -35,13 +35,13 @@ public class DealershipFileManager {
 
     private void processVehicleData(BufferedReader reader, Dealership dealership) throws IOException {
         String line;
-        boolean isFirstLine = true;
+       // boolean isFirstLine = true;
 
         while ((line = reader.readLine()) != null) {
-            if (isFirstLine) {
+          /*  if (isFirstLine) {
                 isFirstLine = false;
                 continue;
-            }
+            } */
 
             String[] data = line.split("\\|");
             int vin = Integer.parseInt(data[0].trim());
@@ -59,8 +59,12 @@ public class DealershipFileManager {
         }
     }
 
-    public void writeCsvFile(List<Vehicle> inventory) {
+    public void writeCsvFileToAddVehicle(List<Vehicle> inventory) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+           /*  String dealershipLine = dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone();
+            writer.write(dealershipLine);
+            writer.newLine();
+*/
             for (Vehicle vehicle : inventory) {
                 String line = vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice();
                 writer.write(line);

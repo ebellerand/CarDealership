@@ -27,7 +27,7 @@ public class UserInterface {
     }
     public void menuHelper() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Dealership. ");
+        System.out.println("Welcome to " + dealership.getName() + " located at " + dealership.getAddress() + " . Please give us a call to schedule a showing or test drive at " + dealership.getPhone());
         System.out.println("----------------------------");
         System.out.println("Please feel free to search our growing selection of vehicles.");
         System.out.println("--------------------------------------------------------------");
@@ -145,7 +145,7 @@ public class UserInterface {
                     Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
                     dealership.addVehicle(vehicle);
                     DealershipFileManager fileManager = new DealershipFileManager();
-                    fileManager.writeCsvFile(dealership.getInventory());
+                    //fileManager.writeCsvFile(dealership.getInventory());
 
 
 

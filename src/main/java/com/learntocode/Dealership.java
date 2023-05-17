@@ -123,7 +123,7 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
-       //fileManager.writeCsvFile(inventory);
+        //fileManager.writeCsvFileToAddVehicle(inventory);
 
     }
 
